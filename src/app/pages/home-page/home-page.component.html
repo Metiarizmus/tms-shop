@@ -1,0 +1,202 @@
+<div class="wrapper">
+
+  <header class="header">
+
+    <app-nav-bar></app-nav-bar>
+
+    <div class="header__content-wrapper content">
+      <div class="content__center">
+
+        <div class="content__center-text">
+          <h3>SUMMER 2020</h3>
+          <h1>New Collection</h1>
+          <h4>Find The Perfect style for you</h4>
+        </div>
+
+        <div class="content__center-button">
+          <a class="content__button" href="#">Shop Now</a>
+        </div>
+
+      </div>
+    </div>
+
+
+  </header>
+
+  <main class="main">
+
+    <!--как правильно это отцентрировать-->
+    <div class="categories-wrapper">
+      <div class="categories__content content">
+
+        <div class="content__left">
+          <div class="content__item hat">
+            <a href="#" class="hat__button">HAT</a>
+          </div>
+          <div class="content__item shoes">
+            <a href="#" class="shoes__button">SHOES</a>
+          </div>
+        </div>
+
+        <div class="content__item dresses middle">
+          <a href="#" class="dresses__button">DRESSES</a>
+        </div>
+
+        <div class="content__left">
+          <div class="content__item bags">
+            <a href="#" class="bags__button">BAGS</a>
+          </div>
+
+          <div class="content__item clothes">
+            <a href="#" class="clothes__button">CLOTHES</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="featured-products-wrapper">
+      <div class="featured-products-wrapper__content">
+        <header class="featured-products__header">
+          <div class="title">
+            Featured Products
+          </div>
+
+          <ul class="subtitle">
+            <li class="subtitle_items active"><a href="#">Featured</a></li>
+            <li class="subtitle_items"><a href="#">Best Seller</a></li>
+            <li class="subtitle_items"><a href="#">New Arrivals</a></li>
+          </ul>
+
+        </header>
+
+        <div class="featured-products__row row">
+          <div class="row__content" *ngFor="let p of featuredProducts">
+            <a href="#">
+              <div class="row__content_picture">
+                <img [src]="p.img" alt="picture">
+
+                <span class="row__content_picture-like">
+                <img src="../../../assets/images/heart.png" alt="heart">
+              </span>
+              </div>
+
+              <div class="row__content_name">
+                {{p.name}} <br> <span style="color: #BDBDBD">(Black)</span>
+              </div>
+
+              <div class="row__content_price">
+                {{p.price | currency}}
+              </div>
+
+              <div class="row__content_colors colors">
+                <div class="colors__circle"
+                     *ngFor="let c of p.colors"
+                     [ngStyle]="{'background-color':c}"
+                >
+                </div>
+              </div>
+
+              <div class="row__content_sizes sizes">
+                <div class="sizes__block"
+                     *ngFor="let s of p.sizes"
+                >
+                  <span>{{s}}</span>
+                </div>
+              </div>
+            </a>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="latest-products-wrapper">
+      <div class="latest-products-wrapper__header">
+        <div class="header__title">
+          <span>Latest Products</span>
+        </div>
+      </div>
+
+      <div class="latest-products-wrapper__content">
+
+        <div class="row-top">
+          <div class="row__content" *ngFor="let p of latestProducts | slice:0:4">
+            <a href="#">
+              <div class="row__content_picture">
+                <img [src]="p.img" alt="picture">
+
+                <span class="row__content_picture-like">
+                <img src="../../../assets/images/heart.png" alt="heart">
+              </span>
+              </div>
+
+              <div class="row__content_name">
+                {{p.name}} <br> <span style="color: #BDBDBD">(Black)</span>
+              </div>
+
+              <div class="row__content_price">
+                {{p.price | currency}}
+              </div>
+
+              <div class="row__content_sizes sizes">
+                <div class="sizes__block"
+                     *ngFor="let s of p.sizes"
+                >
+                  <span>{{s}}</span>
+                </div>
+              </div>
+            </a>
+
+
+          </div>
+        </div>
+
+        <div class="row-bottom">
+          <div class="row__content" *ngFor="let p of latestProducts | slice:4:8">
+            <a href="#">
+              <div class="row__content_picture">
+                <img [src]="p.img" alt="picture">
+
+                <span
+                  class="row__content_picture-like"
+                >
+                  <img src="../../../assets/images/heart.png" alt="heart">
+                </span>
+              </div>
+
+              <div class="row__content_name">
+                {{p.name}} <br> <span style="color: #BDBDBD">(Black)</span>
+              </div>
+
+              <div class="row__content_price">
+                {{p.price | currency}}
+              </div>
+
+              <div class="row__content_sizes sizes">
+                <div class="sizes__block"
+                     *ngFor="let s of p.sizes"
+                >
+                  <span>{{s}}</span>
+                </div>
+              </div>
+            </a>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <app-footer></app-footer>
+  </footer>
+
+</div>
+
